@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SourceFileCollection xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Profile>Reach</Profile>
+  <Platform>DesktopGL</Platform>
+  <Config />
+  <SourceFiles>
+    <File>/Users/christopherchun/RiderProjects/final_project_PvZ/Content/Images/background.png</File>
+    <File>/Users/christopherchun/RiderProjects/final_project_PvZ/Content/Images/plant_vase_cracked.png</File>
+    <File>/Users/christopherchun/RiderProjects/final_project_PvZ/Content/Images/plant_vase.png</File>
+    <File>/Users/christopherchun/RiderProjects/final_project_PvZ/Content/Images/regular_vase_cracked.png</File>
+    <File>/Users/christopherchun/RiderProjects/final_project_PvZ/Content/Images/regular_vase.png</File>
+    <File>/Users/christopherchun/RiderProjects/final_project_PvZ/Content/Images/zombie_vase_cracked.png</File>
+    <File>/Users/christopherchun/RiderProjects/final_project_PvZ/Content/Images/zombie_vase.png</File>
+  </SourceFiles>
+  <DestFiles>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+  </DestFiles>
+</SourceFileCollection>
