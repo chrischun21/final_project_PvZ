@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <SourceFile>/Users/christopherchun/RiderProjects/final_project_PvZ/Content/fonts/Arial.spritefont</SourceFile>
+  <SourceTime>2026-04-23T19:56:46.578452-05:00</SourceTime>
+  <DestFile>/Users/christopherchun/RiderProjects/final_project_PvZ/Content/bin/DesktopGL/Content/fonts/Arial.xnb</DestFile>
+  <DestTime>2026-04-23T19:59:52.1320662-05:00</DestTime>
+  <Importer>FontDescriptionImporter</Importer>
+  <ImporterTime>2025-10-20T09:25:32-05:00</ImporterTime>
+  <Processor>FontDescriptionProcessor</Processor>
+  <ProcessorTime>2025-10-20T09:25:32-05:00</ProcessorTime>
+  <Parameters>
+    <Key>PremultiplyAlpha</Key>
+    <Value>True</Value>
+  </Parameters>
+  <Parameters>
+    <Key>TextureFormat</Key>
+    <Value>Compressed</Value>
+  </Parameters>
+  <Dependencies />
+  <BuildAsset />
+  <BuildOutput />
+</PipelineBuildEvent>

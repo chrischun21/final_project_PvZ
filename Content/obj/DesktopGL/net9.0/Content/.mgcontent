@@ -4,15 +4,53 @@
   <Platform>DesktopGL</Platform>
   <Config />
   <SourceFiles>
+    <File>/Users/christopherchun/RiderProjects/final_project_PvZ/Content/fonts/Arial.spritefont</File>
     <File>/Users/christopherchun/RiderProjects/final_project_PvZ/Content/Images/background.png</File>
+    <File>/Users/christopherchun/RiderProjects/final_project_PvZ/Content/Images/bevo_double.png</File>
+    <File>/Users/christopherchun/RiderProjects/final_project_PvZ/Content/Images/bevo_ice.png</File>
+    <File>/Users/christopherchun/RiderProjects/final_project_PvZ/Content/Images/bevo.png</File>
+    <File>/Users/christopherchun/RiderProjects/final_project_PvZ/Content/Images/easy_sign.png</File>
+    <File>/Users/christopherchun/RiderProjects/final_project_PvZ/Content/Images/endless_sign.png</File>
+    <File>/Users/christopherchun/RiderProjects/final_project_PvZ/Content/Images/hard_sign.png</File>
+    <File>/Users/christopherchun/RiderProjects/final_project_PvZ/Content/Images/helmet_2.png</File>
+    <File>/Users/christopherchun/RiderProjects/final_project_PvZ/Content/Images/helmet_3.png</File>
+    <File>/Users/christopherchun/RiderProjects/final_project_PvZ/Content/Images/helmet.png</File>
+    <File>/Users/christopherchun/RiderProjects/final_project_PvZ/Content/Images/light_bevo.png</File>
+    <File>/Users/christopherchun/RiderProjects/final_project_PvZ/Content/Images/medium_sign.png</File>
+    <File>/Users/christopherchun/RiderProjects/final_project_PvZ/Content/Images/mine_1.png</File>
+    <File>/Users/christopherchun/RiderProjects/final_project_PvZ/Content/Images/mine_2.png</File>
+    <File>/Users/christopherchun/RiderProjects/final_project_PvZ/Content/Images/mine_3.png</File>
     <File>/Users/christopherchun/RiderProjects/final_project_PvZ/Content/Images/plant_vase_cracked.png</File>
     <File>/Users/christopherchun/RiderProjects/final_project_PvZ/Content/Images/plant_vase.png</File>
     <File>/Users/christopherchun/RiderProjects/final_project_PvZ/Content/Images/regular_vase_cracked.png</File>
     <File>/Users/christopherchun/RiderProjects/final_project_PvZ/Content/Images/regular_vase.png</File>
+    <File>/Users/christopherchun/RiderProjects/final_project_PvZ/Content/Images/squash.png</File>
+    <File>/Users/christopherchun/RiderProjects/final_project_PvZ/Content/Images/zombie_bucket.png</File>
+    <File>/Users/christopherchun/RiderProjects/final_project_PvZ/Content/Images/zombie_giant.png</File>
     <File>/Users/christopherchun/RiderProjects/final_project_PvZ/Content/Images/zombie_vase_cracked.png</File>
     <File>/Users/christopherchun/RiderProjects/final_project_PvZ/Content/Images/zombie_vase.png</File>
+    <File>/Users/christopherchun/RiderProjects/final_project_PvZ/Content/Images/zombie.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
