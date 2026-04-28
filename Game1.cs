@@ -17,9 +17,15 @@ public class Game1 : Game
     private int _height;
 
     private Texture2D _background;
+    private Texture2D _texture;
 
     private Vases _vases;
     private Buttons _buttons;
+    
+    // gui positions
+    private FrameDefinition gui_frame;
+    private FrameDefinition gui_hand;
+    private FrameDefinition gui_roster;
 
     private Texture2D _vaseTexture;
     private Texture2D _vaseCrackedTexture;
@@ -93,6 +99,7 @@ public class Game1 : Game
         _graphics.ApplyChanges();
 
         _background = Content.Load<Texture2D>("Images/background");
+        _texture = Content.Load<Texture2D>("Images/texture");
 
         _vaseTexture = Content.Load<Texture2D>("Images/regular_vase");
         _plantVaseTexture = Content.Load<Texture2D>("Images/plant_vase");
@@ -118,8 +125,15 @@ public class Game1 : Game
         _zombies = new List<Zombie>();
         _plants = new List<Plant>();
         _projectiles = new List<Projectile>();
+        
+        // load texture files
+        string jsonString = System.IO.File.ReadAllText("Content/texture.json");
+        
+        var loader = new NativeAtlasLoader();
+        loader.Load(jsonString);
 
-        _inventory = new PlantInventory();
+        _inventory = new PlantInventory(_texture, loader);
+        Plant temp = new Plant(_texture, loader);
 
         HookVaseEvents();
 
@@ -201,7 +215,10 @@ public class Game1 : Game
         _vases.Update(dt);
 
         foreach (var plant in _plants)
+        {
+            plant.Animate(gameTime);
             _projectiles.AddRange(plant.Update(dt, _zombies));
+        }
 
         foreach (var proj in _projectiles)
             proj.Update(dt);
@@ -250,7 +267,7 @@ public class Game1 : Game
         _zombies.Clear();
         _projectiles.Clear();
 
-        _inventory = new PlantInventory();
+        _inventory.Reset();
 
         _vases.SpawnLevel(_pendingDifficulty);
 
@@ -278,7 +295,7 @@ public class Game1 : Game
         _zombies.Clear();
         _projectiles.Clear();
 
-        _inventory = new PlantInventory();
+        _inventory.Reset();
 
         _vases = new Vases();
         HookVaseEvents();
@@ -478,9 +495,10 @@ public class Game1 : Game
         _inventory.Draw(_spriteBatch, _font);
 
         foreach (var p in _plants)
-            p.Draw(_spriteBatch, _bevo, _bevoIce, _bevoDouble,
-                _helmet1, _helmet2, _helmet3,
-                _lightBevo, _mine1, _mine2, _mine3, _squashTexture);
+            // p.Draw(_spriteBatch, _bevo, _bevoIce, _bevoDouble,
+            //     _helmet1, _helmet2, _helmet3,
+            //     _lightBevo, _mine1, _mine2, _mine3, _squashTexture);
+            p.Draw(_spriteBatch);
 
         foreach (var z in _zombies)
             z.Draw(_spriteBatch, _zombieTexture, _bucketZombieTexture, _gargantuarTexture, _font);
@@ -596,5 +614,17 @@ public class Game1 : Game
         }
 
         return minDist < 50f ? best : null;
+    }
+    
+    private void UnpackTextures()
+    {
+        // load texture files
+        string jsonString = System.IO.File.ReadAllText("Content/texture.json");
+        
+        var loader = new NativeAtlasLoader();
+        loader.Load(jsonString);
+        
+        // gotta. load up everything here...
+        // bevo = new Peashooter(texture, loader);
     }
 }
