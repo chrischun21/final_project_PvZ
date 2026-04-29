@@ -255,6 +255,7 @@ public class Zombie
     }
 
     // legacy Draw method
+    /*
     public void Draw(
         SpriteBatch spriteBatch,
         Texture2D normalTexture,
@@ -300,6 +301,7 @@ public class Zombie
             Color.White
         );
     }
+    */
 
     public float GetEatingMultiplier()
     {
