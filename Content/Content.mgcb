@@ -20,6 +20,9 @@
 /processorParam:TextureFormat=Compressed
 /build:fonts/Arial.spritefont
 
+#begin gamedata.json
+/copy:gamedata.json
+
 #begin Images/background.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -260,6 +263,18 @@
 /processorParam:TextureFormat=Color
 /build:Images/squash.png
 
+#begin Images/texture.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Images/texture.png
+
 #begin Images/zombie_bucket.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -320,20 +335,12 @@
 /processorParam:TextureFormat=Color
 /build:Images/zombie.png
 
-#begin texture.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Images/texture.png
+#begin Sounds/theme.ogg
+/importer:OggImporter
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:Sounds/theme.ogg
 
-# import texture.json
+#begin texture.json
 /copy:texture.json
 
-# import gamedata.json
-/copy:gamedata.json

@@ -25,6 +25,7 @@
     <File>/Users/christopherchun/RiderProjects/final_project_PvZ/Content/Images/regular_vase_cracked.png</File>
     <File>/Users/christopherchun/RiderProjects/final_project_PvZ/Content/Images/regular_vase.png</File>
     <File>/Users/christopherchun/RiderProjects/final_project_PvZ/Content/Images/squash.png</File>
+    <File>/Users/christopherchun/RiderProjects/final_project_PvZ/Content/Images/texture.png</File>
     <File>/Users/christopherchun/RiderProjects/final_project_PvZ/Content/Images/zombie_bucket.png</File>
     <File>/Users/christopherchun/RiderProjects/final_project_PvZ/Content/Images/zombie_giant.png</File>
     <File>/Users/christopherchun/RiderProjects/final_project_PvZ/Content/Images/zombie_vase_cracked.png</File>
@@ -32,6 +33,7 @@
     <File>/Users/christopherchun/RiderProjects/final_project_PvZ/Content/Images/zombie.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using Microsoft.Xna.Framework.Media;
 using System.Collections.Generic;
 using System.Linq;
 using System;
@@ -38,6 +39,12 @@ public class Game1 : Game
 
     private MouseState _previousMouse;
     private KeyboardState _previousKeyboard;
+
+    // MUSIC
+    private Song _themeSong;
+    private string _musicMessage = "";
+    private float _musicMessageTimer = 0f;
+    private const float MusicMessageDuration = 2f;
 
     // Plant textures
     private Texture2D _bevo;
@@ -184,6 +191,11 @@ public class Game1 : Game
 
         _pixel = new Texture2D(GraphicsDevice, 1, 1);
         _pixel.SetData(new[] { Color.White });
+
+        // LOAD MUSIC
+        _themeSong = Content.Load<Song>("Sounds/theme");
+        MediaPlayer.IsRepeating = true;
+        MediaPlayer.Play(_themeSong);
     }
 
     protected override void Update(GameTime gameTime)
@@ -195,6 +207,28 @@ public class Game1 : Game
 
         var mouse = Mouse.GetState();
         var keyboard = Keyboard.GetState();
+
+        // MUSIC TOGGLE
+        if (keyboard.IsKeyDown(Keys.M) && !_previousKeyboard.IsKeyDown(Keys.M))
+        {
+            MediaPlayer.IsMuted = !MediaPlayer.IsMuted;
+
+            if (MediaPlayer.IsMuted)
+            {
+                _musicMessage = "Music Muted";
+            }
+            else
+            {
+                _musicMessage = "Music Unmuted";
+            }
+
+            _musicMessageTimer = MusicMessageDuration;
+        }
+
+        if (_musicMessageTimer > 0f)
+        {
+            _musicMessageTimer -= dt;
+        }
 
         if (_gameWon || _gameLost)
         {
@@ -524,6 +558,30 @@ public class Game1 : Game
 
         foreach (var proj in _projectiles)
             proj.Draw(_spriteBatch, _pixel);
+
+        // TOP RIGHT INSTRUCTION
+        string mutePrompt = "Press 'M' to mute music";
+        Vector2 mutePromptSize = _font.MeasureString(mutePrompt);
+
+        _spriteBatch.DrawString(
+            _font,
+            mutePrompt,
+            new Vector2(_width - mutePromptSize.X - 20, 20),
+            Color.White);
+
+        // CENTER MUSIC MESSAGE
+        if (_musicMessageTimer > 0f)
+        {
+            Vector2 msgSize = _font.MeasureString(_musicMessage);
+
+            _spriteBatch.DrawString(
+                _font,
+                _musicMessage,
+                new Vector2(
+                    _width / 2f - msgSize.X / 2f,
+                    _height / 2f - msgSize.Y / 2f),
+                Color.Yellow);
+        }
 
         if (_gameWon || _gameLost)
         {
