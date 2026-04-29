@@ -22,6 +22,8 @@ public class Buttons
     private Rectangle _easyRect;
     private Rectangle _mediumRect;
     private Rectangle _hardRect;
+    
+    private int _unlockedLevel; // 0, 1, or 2
 
     private float _easyClickTimer = 0f;
     private float _mediumClickTimer = 0f;
@@ -42,6 +44,8 @@ public class Buttons
         _mediumRect = new Rectangle(550, 400, buttonWidth, buttonHeight);
         _hardRect = new Rectangle(550, 600, buttonWidth, buttonHeight);
     }
+    
+    public void SetUnlockedLevel(int level) => _unlockedLevel = level;
 
     public Difficulty HandleClick(Point mousePoint)
     {
@@ -51,13 +55,13 @@ public class Buttons
             return Difficulty.Easy;
         }
 
-        if (_mediumRect.Contains(mousePoint))
+        if (_mediumRect.Contains(mousePoint) && _unlockedLevel >= 1)
         {
             _mediumClickTimer = ClickDuration;
             return Difficulty.Medium;
         }
 
-        if (_hardRect.Contains(mousePoint))
+        if (_hardRect.Contains(mousePoint) && _unlockedLevel >= 2)
         {
             _hardClickTimer = ClickDuration;
             return Difficulty.Hard;
@@ -77,13 +81,17 @@ public class Buttons
     {
         var mouse = Mouse.GetState();
         Point mousePoint = new Point(mouse.X, mouse.Y);
+        
+        Color medColor = _unlockedLevel >= 1 ? Color.White : Color.Gray * 0.5f;
+        Color hardColor = _unlockedLevel >= 2 ? Color.White : Color.Gray * 0.5f;
 
-        DrawSingleButton(spriteBatch, _easyTexture, _easyRect, _easyClickTimer, mousePoint);
-        DrawSingleButton(spriteBatch, _mediumTexture, _mediumRect, _mediumClickTimer, mousePoint);
-        DrawSingleButton(spriteBatch, _hardTexture, _hardRect, _hardClickTimer, mousePoint);
+        DrawSingleButton(spriteBatch, _easyTexture, _easyRect, _easyClickTimer, mousePoint, Color.White);
+        DrawSingleButton(spriteBatch, _mediumTexture, _mediumRect, _mediumClickTimer, mousePoint, medColor);
+        DrawSingleButton(spriteBatch, _hardTexture, _hardRect, _hardClickTimer, mousePoint, hardColor);
     }
 
-    private void DrawSingleButton(SpriteBatch spriteBatch, Texture2D texture, Rectangle rect, float clickTimer, Point mousePoint)
+    private void DrawSingleButton(SpriteBatch spriteBatch, Texture2D texture, Rectangle rect,
+        float clickTimer, Point mousePoint, Color color)
     {
         float scale = 1.0f;
 
@@ -98,7 +106,7 @@ public class Buttons
             texture,
             center,
             null,
-            Color.White,
+            color,
             0f,
             new Vector2(texture.Width / 2f, texture.Height / 2f),
             scale,

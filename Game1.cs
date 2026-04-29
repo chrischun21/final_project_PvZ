@@ -15,6 +15,8 @@ public class Game1 : Game
     private SpriteBatch _spriteBatch;
     private int _width;
     private int _height;
+    
+    private SaveData _currentSave;
 
     private Texture2D _background;
     private Texture2D _texture;
@@ -97,6 +99,8 @@ public class Game1 : Game
         _height = _graphics.PreferredBackBufferHeight;
 
         _graphics.ApplyChanges();
+        
+        _currentSave = SaveManager.Load();
 
         _background = Content.Load<Texture2D>("Images/background");
         _texture = Content.Load<Texture2D>("Images/texture");
@@ -120,6 +124,7 @@ public class Game1 : Game
         _font = Content.Load<SpriteFont>("fonts/Arial");
 
         _buttons = new Buttons(easy, medium, hard);
+        _buttons.SetUnlockedLevel(_currentSave.Level);
 
         _vases = new Vases();
         _zombies = new List<Zombie>();
@@ -193,6 +198,19 @@ public class Game1 : Game
 
         if (_gameWon || _gameLost)
         {
+            // level unlock handling
+            if (_gameWon)
+            {
+                int diffIndex = (int)_pendingDifficulty;
+                if (_currentSave.Level == diffIndex)
+                {
+                    // increase unlock lvl, cap at 2
+                    _currentSave.Level = (_currentSave.Level > 2) ? 2 : _currentSave.Level + 1;
+                    SaveManager.Save(_currentSave);
+                    _buttons.SetUnlockedLevel(_currentSave.Level);
+                }
+            }
+            
             if (keyboard.IsKeyDown(Keys.P) && !_previousKeyboard.IsKeyDown(Keys.P))
             {
                 RestartLevel();
@@ -615,5 +633,23 @@ public class Game1 : Game
         }
 
         return minDist < 50f ? best : null;
+    }
+    
+    public static class SaveManager
+    {
+        private static string _path = "Content/savedata.json";
+
+        public static SaveData Load()
+        {
+            if (!System.IO.File.Exists(_path)) return new SaveData();
+            string json = System.IO.File.ReadAllText(_path);
+            return System.Text.Json.JsonSerializer.Deserialize<SaveData>(json);
+        }
+
+        public static void Save(SaveData data)
+        {
+            string json = System.Text.Json.JsonSerializer.Serialize(data);
+            System.IO.File.WriteAllText(_path, json);
+        }
     }
 }
