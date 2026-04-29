@@ -395,7 +395,7 @@ public class Plant
                     Body = Loader.Frames["mine_3"].Clone();
                 // update pivots and offsets
                 Body.Pivot = new Vector2(Body.SourceRectangle.Width / 2, Body.SourceRectangle.Height);
-                Body.Offset = new Vector2(0, 80);
+                Body.Offset = new Vector2(0, 70);
                 sb.Draw(Texture, posBody, Body.SourceRectangle, Color.White,
                     0.0f, Body.Pivot, Scale, SpriteEffects.None, 0.0f);
                 sb.Draw(Texture, posExtra, Extra.SourceRectangle, Color.White,

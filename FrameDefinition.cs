@@ -8,7 +8,7 @@ public class FrameDefinition
     public Vector2 Offset { get; set; } = Vector2.Zero;
     public Point Size { get; set; }
     
-    // Add this method
+    // clean copy
     public FrameDefinition Clone()
     {
         return new FrameDefinition {

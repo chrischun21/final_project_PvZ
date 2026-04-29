@@ -133,7 +133,8 @@ public class Game1 : Game
         loader.Load(jsonString);
 
         _inventory = new PlantInventory(_texture, loader);
-        Plant temp = new Plant(_texture, loader);
+        Plant tempP = new Plant(_texture, loader);
+        Zombie tempZ = new Zombie(_texture, loader);
 
         HookVaseEvents();
 
@@ -230,7 +231,10 @@ public class Game1 : Game
         _zombies.RemoveAll(z => z.Health <= 0);
 
         foreach (var z in _zombies)
+        {
+            z.AnimateWalk(gameTime);
             z.Update(dt);
+        }
 
         HandleZombieEating(dt);
 
@@ -495,13 +499,10 @@ public class Game1 : Game
         _inventory.Draw(_spriteBatch, _font);
 
         foreach (var p in _plants)
-            // p.Draw(_spriteBatch, _bevo, _bevoIce, _bevoDouble,
-            //     _helmet1, _helmet2, _helmet3,
-            //     _lightBevo, _mine1, _mine2, _mine3, _squashTexture);
             p.Draw(_spriteBatch);
 
         foreach (var z in _zombies)
-            z.Draw(_spriteBatch, _zombieTexture, _bucketZombieTexture, _gargantuarTexture, _font);
+            z.DrawWalk(_spriteBatch, _font);
 
         foreach (var proj in _projectiles)
             proj.Draw(_spriteBatch, _pixel);
@@ -614,17 +615,5 @@ public class Game1 : Game
         }
 
         return minDist < 50f ? best : null;
-    }
-    
-    private void UnpackTextures()
-    {
-        // load texture files
-        string jsonString = System.IO.File.ReadAllText("Content/texture.json");
-        
-        var loader = new NativeAtlasLoader();
-        loader.Load(jsonString);
-        
-        // gotta. load up everything here...
-        // bevo = new Peashooter(texture, loader);
     }
 }
