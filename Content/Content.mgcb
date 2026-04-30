@@ -335,11 +335,11 @@
 /processorParam:TextureFormat=Color
 /build:Images/zombie.png
 
-#begin Sounds/theme.ogg
-/importer:OggImporter
+#begin theme.wav
+/importer:WavImporter
 /processor:SongProcessor
 /processorParam:Quality=Best
-/build:Sounds/theme.ogg
+/build:Sounds/theme.wav
 
 #begin texture.json
 /copy:texture.json
